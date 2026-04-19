@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Site-wide background used on non-Home routes */
+.bg-steak {
+  background-image: url('/steak-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* ---- Home page hero (only on "/") ----
+   Put the image file at: client/public/steak-hero.jpg
+   In App.jsx, wrap your hero content in a <section className="home-hero">...</section>
+*/
+.home-hero {
+  background-image: url('/steak-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* fixed can cause jank on iOS; keep scroll here for hero */
+  background-attachment: scroll;
+  min-height: 70vh;          /* hero height on small screens */
+  display: flex;             /* centers children */
+  align-items: center;
+  justify-content: center;
+  position: relative;        /* for overlay pseudo-element */
+}
+
+/* Taller hero on medium+ screens */
+@media (min-width: 768px) {
+  .home-hero {
+    min-height: 80vh;
+  }
+}
+
+/* Soft dark overlay for text readability */
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Ensure hero children sit above the overlay */
+.home-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+  

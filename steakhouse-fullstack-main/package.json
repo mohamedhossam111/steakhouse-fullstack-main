@@ -1,0 +1,19 @@
+{
+  "name": "steakhouse-fullstack",
+  "private": true,
+  "version": "1.0.1",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "install-all": "npm --prefix client install && npm --prefix server install",
+    "dev": "npm --prefix server run dev & npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix server start"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
